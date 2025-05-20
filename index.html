@@ -1,10 +1,53 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>Overlay</title>
-  </head>
-  <body style="margin:0; background:black;">
-    <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent" width="640" height="360" frameborder="0"></iframe>
-  </body>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Overlay VDO</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: black;
+      font-family: Arial, sans-serif;
+    }
+    .cam-container {
+      position: absolute;
+      width: 480px;
+      height: 270px;
+      border: 4px solid #00ffcc;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .name {
+      position: absolute;
+      bottom: -30px;
+      left: 10px;
+      color: white;
+      font-weight: bold;
+    }
+    #player1 {
+      top: 100px;
+      left: 100px;
+    }
+    #player2 {
+      top: 100px;
+      right: 100px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="cam-container" id="player1">
+    <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent"></iframe>
+    <div class="name">Joueur 1</div>
+  </div>
+
+  <div class="cam-container" id="player2">
+    <iframe src="https://vdo.ninja/?view=joueur2&cleanoutput&transparent"></iframe>
+    <div class="name">Joueur 2</div>
+  </div>
+</body>
 </html>
