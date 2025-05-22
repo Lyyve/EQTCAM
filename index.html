@@ -23,20 +23,15 @@
       left: 10px;
       color: white;
       font-weight: bold;
+      font-size: 18px;
     }
     #player1 {
-     <iframe
-  src="https://vdo.ninja/?view=joueur1&cleanoutput"
-  width="640"
-  height="360"
-  allow="camera; microphone"
-  frameborder="0">
-</iframe>
-
+      top: 50px;
+      left: 50px;
     }
     #player2 {
-      top: 100px;
-      right: 100px;
+      top: 50px;
+      right: 50px;
     }
     iframe {
       width: 100%;
@@ -47,13 +42,14 @@
 </head>
 <body>
   <div class="cam-container" id="player1">
-    <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent"></iframe>
+    <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent" allow="camera; microphone"></iframe>
     <div class="name">Joueur 1</div>
   </div>
 
   <div class="cam-container" id="player2">
-    <iframe src="https://vdo.ninja/?view=joueur2&cleanoutput&transparent"></iframe>
+    <iframe src="https://vdo.ninja/?view=joueur2&cleanoutput&transparent" allow="camera; microphone"></iframe>
     <div class="name">Joueur 2</div>
   </div>
 </body>
 </html>
+
