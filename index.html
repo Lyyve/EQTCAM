@@ -2,107 +2,140 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Overlay Esport</title>
+  <title>Overlay EQT</title>
   <style>
     body {
       margin: 0;
-      background: linear-gradient(135deg, #d62847, #f34d6c);
-      font-family: 'Arial Black', sans-serif;
+      background: #000;
+      font-family: Arial, sans-serif;
       overflow: hidden;
     }
-    .overlay {
-      position: relative;
-      width: 1920px;
-      height: 1080px;
-      margin: 0 auto;
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
     }
-    .cam {
-      position: absolute;
+
+    .team {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .team img {
+      height: 40px;
+      width: 40px;
+      object-fit: contain;
+    }
+
+    .cam-zone {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 10px 20px;
+      flex-wrap: nowrap;
+      gap: 10px;
+    }
+
+    .cam-container {
       width: 320px;
       height: 180px;
-      border: 4px solid black;
-      background: transparent;
+      background: #111;
+      border: 3px solid #00ffcc;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+      position: relative;
+      display: flex;
+      flex-direction: column;
     }
-    .cam iframe {
+
+    .cam-container iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
-    .nameplate {
-      position: absolute;
-      bottom: -32px;
-      left: 0;
-      background-color: #411f1f;
-      padding: 4px 12px;
-      color: white;
-      font-size: 22px;
-      font-weight: bold;
-      border-radius: 0 0 8px 0;
-    }
-    #cam1 { top: 160px; left: 120px; }
-    #cam2 { top: 160px; left: 760px; }
-    #cam3 { top: 160px; left: 1400px; }
-    #cam4 { top: 420px; left: 440px; }
-    #cam5 { top: 420px; left: 1080px; }
 
-    /* Desk (trou) */
-    .desk-hole {
+    .player-name {
       position: absolute;
-      top: 420px;
-      left: 760px;
+      bottom: -28px;
+      left: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .desk-zone {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 260px;
+      border: 6px solid #ffffff33;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 40px #00ffcc55;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cam-hole {
       width: 320px;
       height: 180px;
       background: transparent;
-      border: 4px solid black;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
-    }
-    .desk-label {
-      position: absolute;
-      top: 610px;
-      left: 880px;
-      background-color: black;
-      color: white;
-      font-size: 22px;
-      padding: 4px 12px;
-      font-weight: bold;
-      border-radius: 0 0 8px 8px;
-    }
-
-    .team-name {
-      position: absolute;
-      top: 40px;
-      left: 100px;
-      background-color: #c61f3a;
-      color: white;
-      font-size: 28px;
-      padding: 10px 20px;
-      font-weight: bold;
-      box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
-      border-radius: 4px;
-    }
-
-    .logo {
-      position: absolute;
-      top: 40px;
-      right: 100px;
-      height: 100px;
+      border: 3px dashed #00ffcc88;
+      border-radius: 16px;
     }
   </style>
 </head>
 <body>
-  <div class="overlay">
 
-    <!-- Team name -->
-    <div class="team-name">VALORANT TEAM</div>
-
-    <!-- Team logo -->
-    <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/e7/Fnatic_logo.svg/800px-Fnatic_logo.svg.png" class="logo" alt="Team Logo">
-
-    <!-- Cameras -->
-    <div class="cam" id="cam1">
-      <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent"></iframe>
-      <div class="nameplate">Joueur 1</div>
+  <!-- Bandeau haut -->
+  <div class="top-bar">
+    <div class="team">
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/8/89/Vitality_2021_logo.png/320px-Vitality_2021_logo.png" alt="Logo Team Alpha">
+      <span>Team Alpha</span>
     </div>
-    <div cl
+    <div class="team">
+      <span>Team Omega</span>
+      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/0/00/Logo_G2_Esports_2020.png/320px-Logo_G2_Esports_2020.png" alt="Logo Team Omega">
+    </div>
+  </div>
+
+  <!-- Caméras joueurs -->
+  <div class="cam-zone">
+    <div class="cam-container">
+      <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent"></iframe>
+      <div class="player-name">Joueur 1</div>
+    </div>
+    <div class="cam-container">
+      <iframe src="https://vdo.ninja/?view=joueur2&cleanoutput&transparent"></iframe>
+      <div class="player-name">Joueur 2</div>
+    </div>
+    <div class="cam-container">
+      <iframe src="https://vdo.ninja/?view=joueur3&cleanoutput&transparent"></iframe>
+      <div class="player-name">Joueur 3</div>
+    </div>
+    <div class="cam-container">
+      <iframe src="https://vdo.ninja/?view=joueur4&cleanoutput&transparent"></iframe>
+      <div class="player-name">Joueur 4</div>
+    </div>
+    <div class="cam-container">
+      <iframe src="https://vdo.ninja/?view=joueur5&cleanoutput&transparent"></iframe>
+      <div class="player-name">Joueur 5</div>
+    </div>
+  </div>
+
+  <!-- Zone desk avec trou pour ta webcam -->
+  <div class="desk-zone">
+    <div class="cam-hole"></div>
+  </div>
+
+</body>
+</html>
