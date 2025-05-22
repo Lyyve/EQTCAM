@@ -1,89 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Overlay VDO.Ninja</title>
+  <meta charset="UTF-8">
+  <title>Overlay VDO</title>
   <style>
-   html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
-#background {
-  background-image: url('FONDCAM.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1; /* derrière tout */
-}
-
-    .cam-frame {
-      position: absolute;
-      width: 400px;
-      height: 225px;
-      background-color: rgba(0, 0, 0, 0.1); /* Visible même sans vidéo */
-      border: 2px solid rgba(255, 255, 255, 0.2);
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
     }
-    .name-tag {
+
+    #background {
+      background-image: url('FONDCAM.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       position: absolute;
-      top: -30px;
+      top: 0;
       left: 0;
-      background-color: rgba(255, 0, 0, 0.8);
-      padding: 5px 10px;
-      font-weight: bold;
-      color: white;
-      border-radius: 5px;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
     }
+
+    .cam-container {
+      position: absolute;
+      width: 240px;
+      height: 135px;
+      border: 2px solid #00ffcc;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .name {
+      position: absolute;
+      bottom: -25px;
+      left: 10px;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      text-shadow: 1px 1px 2px black;
+    }
+
     iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
+
+    /* Positionnement exemple à adapter */
+    #player1 { top: 50px; left: 50px; }
+    #player2 { top: 50px; right: 50px; }
+    #player3 { top: 250px; left: 50px; }
+    #player4 { top: 250px; right: 50px; }
+    #player5 { top: 450px; left: calc(50% - 120px); }
   </style>
 </head>
 <body>
 
-<script>
-  // Modifier ici uniquement
-  const players = {
-    player1: "NEO",
-    player2: "RUSH",
-    player3: "KENNY",
-    desk:    "ANALYSTE"
-  };
+  <div id="background"></div>
 
-  const positions = [
-    { id: 'player1', x: 50,  y: 50 },
-    { id: 'player2', x: 500, y: 50 },
-    { id: 'player3', x: 950, y: 50 },
-    { id: 'desk',    x: 350, y: 350 }
-  ];
+  <div class="cam-container" id="player1">
+    <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent"></iframe>
+    <div class="name">Joueur 1</div>
+  </div>
 
-  positions.forEach(pos => {
-    const div = document.createElement("div");
-    div.className = "cam-frame";
-    div.style.left = pos.x + "px";
-    div.style.top  = pos.y + "px";
+  <div class="cam-container" id="player2">
+    <iframe src="https://vdo.ninja/?view=joueur2&cleanoutput&transparent"></iframe>
+    <div class="name">Joueur 2</div>
+  </div>
 
-    const name = document.createElement("div");
-    name.className = "name-tag";
-    name.textContent = players[pos.id];
+  <div class="cam-container" id="player3">
+    <iframe src="https://vdo.ninja/?view=joueur3&cleanoutput&transparent"></iframe>
+    <div class="name">Joueur 3</div>
+  </div>
 
-    const iframe = document.createElement("iframe");
-    iframe.src = `https://vdo.ninja/?view=${players[pos.id]}&label=${players[pos.id]}`;
+  <div class="cam-container" id="player4">
+    <iframe src="https://vdo.ninja/?view=joueur4&cleanoutput&transparent"></iframe>
+    <div class="name">Joueur 4</div>
+  </div>
 
-    div.appendChild(name);
-    div.appendChild(iframe);
-    document.body.appendChild(div);
-  });
-</script>
+  <div class="cam-container" id="player5">
+    <iframe src="https://vdo.ninja/?view=joueur5&cleanoutput&transparent"></iframe>
+    <div class="name">Joueur 5</div>
+  </div>
 
 </body>
 </html>
