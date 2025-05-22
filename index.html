@@ -1,16 +1,28 @@
-ie<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Overlay VDO</title>
     <style>
+        /* --- DÉCLARATION DE LA POLICE Avenir Next Cyr Heavy --- */
+        @font-face {
+            font-family: 'Avenir Next Cyr Heavy'; /* Nom que vous utiliserez dans votre CSS */
+            src: url('fonts/AvenirNextCyr-Heavy.woff2') format('woff2'),
+                 url('fonts/AvenirNextCyr-Heavy.woff') format('woff');
+            font-weight: 700; /* La "graisse" de la police. "Heavy" est souvent 700, 800 ou 900 */
+            font-style: normal;
+            font-display: swap; /* Permet un affichage rapide du texte avec une police par défaut */
+        }
+        /* ----------------------------------------------------- */
+
         html, body {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
-            font-family: avenir next cyrillic, Heavy;
+            /* Applique la nouvelle police à tout le corps du document */
+            font-family: 'Avenir Next Cyr Heavy', Arial, sans-serif;
         }
 
         #background {
@@ -37,12 +49,14 @@ ie<!DOCTYPE html>
 
         .name {
             position: absolute;
-            bottom: -25px; /* Ceci est le style du .name à l'intérieur des cam-containers */
+            bottom: -25px;
             left: 10px;
             color: white;
             font-weight: bold;
             font-size: 14px;
             text-shadow: 1px 1px 2px black;
+            /* La police 'Avenir Next Cyr Heavy' est héritée de 'body' */
+            /* Si vous voulez une graisse spécifique ici, vous pouvez l'ajouter: font-weight: 700; */
         }
         iframe {
             width: 100%;
@@ -56,50 +70,48 @@ ie<!DOCTYPE html>
         #player3 { top: 640px; left: 180px; }
         #player4 { top: 640px; right: 180px; }
         #player5 {
-            top: 640px; /* Conserve la position verticale que vous avez définie */
-            left: 50%; /* Positionne le bord gauche de l'élément au milieu du parent */
-            transform: translateX(-50%); /* Décale l'élément de 50% de sa PROPRE largeur vers la gauche */
+            top: 640px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         /* --- STYLES ET POSITIONNEMENT DES NOUVEAUX NOMS INDÉPENDANTS --- */
         .independent-name {
-            position: absolute; /* Permet de les placer où l'on veut */
-            color: white; /* Texte blanc */
-            font-family: avenir next cyrillic, Heavy;
-            font-size: 40px; /* Taille plus grande pour qu'ils soient bien visibles */
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Ombre pour la lisibilité */
-            z-index: 10; /* Assure qu'ils sont au-dessus de tout le reste */
-            white-space: nowrap; /* Empêche le texte de se couper */
-            /* Pour un meilleur aperçu, vous pouvez décommenter une bordure: */
-            /* border: 1px dashed rgba(255, 255, 255, 0.5); */
-            /* padding: 5px 10px; */
+            position: absolute;
+            color: white;
+            /* Applique la nouvelle police directement ici */
+            font-family: 'Avenir Next Cyr Heavy', sans-serif;
+            font-size: 40px;
+            font-weight: bold; /* Confirme la graisse "Heavy" */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+            white-space: nowrap;
         }
 
         /* Positionnement de chaque nom indépendant */
         #independent-name1 {
-            top: 560px; /* Exemple: en haut à gauche */
+            top: 560px;
             left: 200px;
         }
 
         #independent-name2 {
-            top: 560px; /* Exemple: en haut à droite */
+            top: 560px;
             right: 200px;
         }
 
         #independent-name3 {
-            top: 950px; /* Exemple: un peu plus bas, centré horizontalement */
+            top: 950px;
             left: 200px;
         }
 
         #independent-name4 {
-            top: 950px; /* Exemple: en bas à gauche */
+            top: 950px;
             right: 200px;
         }
 
         #independent-name5 {
-            top: 950px; /* Exemple: en bas à droite */
-            left: 50%; /* Positionne le bord gauche de l'élément au milieu du parent */
+            top: 950px;
+            left: 50%;
             transform: translateX(-50%);
         }
         /* ------------------------------------------------------------- */
@@ -140,5 +152,6 @@ ie<!DOCTYPE html>
     <div id="independent-name3" class="independent-name">Player 3</div>
     <div id="independent-name4" class="independent-name">Player 4</div>
     <div id="independent-name5" class="independent-name">Player 5</div>
-    </body>
+
+</body>
 </html>
