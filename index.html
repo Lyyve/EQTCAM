@@ -1,141 +1,77 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Overlay EQT</title>
+  <meta charset="UTF-8" />
+  <title>Overlay VDO.Ninja</title>
   <style>
     body {
       margin: 0;
-      background: #000;
+      padding: 0;
+      overflow: hidden;
+      background: url('overlay_with_custom_background.png') no-repeat center center;
+      background-size: cover;
       font-family: Arial, sans-serif;
-      overflow: hidden;
     }
-
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
+    .cam-frame {
+      position: absolute;
+      width: 400px;
+      height: 225px;
+      background-color: rgba(0, 0, 0, 0.1); /* Visible même sans vidéo */
+      border: 2px solid rgba(255, 255, 255, 0.2);
     }
-
-    .team {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: white;
-      font-size: 22px;
+    .name-tag {
+      position: absolute;
+      top: -30px;
+      left: 0;
+      background-color: rgba(255, 0, 0, 0.8);
+      padding: 5px 10px;
       font-weight: bold;
+      color: white;
+      border-radius: 5px;
     }
-
-    .team img {
-      height: 40px;
-      width: 40px;
-      object-fit: contain;
-    }
-
-    .cam-zone {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      padding: 10px 20px;
-      flex-wrap: nowrap;
-      gap: 10px;
-    }
-
-    .cam-container {
-      width: 320px;
-      height: 180px;
-      background: #111;
-      border: 3px solid #00ffcc;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .cam-container iframe {
+    iframe {
       width: 100%;
       height: 100%;
       border: none;
-    }
-
-    .player-name {
-      position: absolute;
-      bottom: -28px;
-      left: 10px;
-      color: white;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .desk-zone {
-      position: absolute;
-      bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 900px;
-      height: 260px;
-      border: 6px solid #ffffff33;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      box-shadow: 0 0 40px #00ffcc55;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .cam-hole {
-      width: 320px;
-      height: 180px;
-      background: transparent;
-      border: 3px dashed #00ffcc88;
-      border-radius: 16px;
     }
   </style>
 </head>
 <body>
 
-  <!-- Bandeau haut -->
-  <div class="top-bar">
-    <div class="team">
-      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/8/89/Vitality_2021_logo.png/320px-Vitality_2021_logo.png" alt="Logo Team Alpha">
-      <span>Team Alpha</span>
-    </div>
-    <div class="team">
-      <span>Team Omega</span>
-      <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/0/00/Logo_G2_Esports_2020.png/320px-Logo_G2_Esports_2020.png" alt="Logo Team Omega">
-    </div>
-  </div>
+<script>
+  // Modifier ici uniquement
+  const players = {
+    player1: "NEO",
+    player2: "RUSH",
+    player3: "KENNY",
+    desk:    "ANALYSTE"
+  };
 
-  <!-- Caméras joueurs -->
-  <div class="cam-zone">
-    <div class="cam-container">
-      <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent"></iframe>
-      <div class="player-name">Joueur 1</div>
-    </div>
-    <div class="cam-container">
-      <iframe src="https://vdo.ninja/?view=joueur2&cleanoutput&transparent"></iframe>
-      <div class="player-name">Joueur 2</div>
-    </div>
-    <div class="cam-container">
-      <iframe src="https://vdo.ninja/?view=joueur3&cleanoutput&transparent"></iframe>
-      <div class="player-name">Joueur 3</div>
-    </div>
-    <div class="cam-container">
-      <iframe src="https://vdo.ninja/?view=joueur4&cleanoutput&transparent"></iframe>
-      <div class="player-name">Joueur 4</div>
-    </div>
-    <div class="cam-container">
-      <iframe src="https://vdo.ninja/?view=joueur5&cleanoutput&transparent"></iframe>
-      <div class="player-name">Joueur 5</div>
-    </div>
-  </div>
+  const positions = [
+    { id: 'player1', x: 50,  y: 50 },
+    { id: 'player2', x: 500, y: 50 },
+    { id: 'player3', x: 950, y: 50 },
+    { id: 'desk',    x: 350, y: 350 }
+  ];
 
-  <!-- Zone desk avec trou pour ta webcam -->
-  <div class="desk-zone">
-    <div class="cam-hole"></div>
-  </div>
+  positions.forEach(pos => {
+    const div = document.createElement("div");
+    div.className = "cam-frame";
+    div.style.left = pos.x + "px";
+    div.style.top  = pos.y + "px";
+
+    const name = document.createElement("div");
+    name.className = "name-tag";
+    name.textContent = players[pos.id];
+
+    const iframe = document.createElement("iframe");
+    iframe.src = `https://vdo.ninja/?view=${players[pos.id]}&label=${players[pos.id]}`;
+
+    div.appendChild(name);
+    div.appendChild(iframe);
+    document.body.appendChild(div);
+  });
+</script>
 
 </body>
 </html>
