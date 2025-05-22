@@ -56,7 +56,6 @@
             font-size: 14px;
             text-shadow: 1px 1px 2px black;
             /* La police 'Avenir Next Cyr Heavy' est héritée de 'body' */
-            /* Si vous voulez une graisse spécifique ici, vous pouvez l'ajouter: font-weight: 700; */
         }
         iframe {
             width: 100%;
@@ -75,45 +74,65 @@
             transform: translateX(-50%);
         }
 
-        /* --- STYLES ET POSITIONNEMENT DES NOUVEAUX NOMS INDÉPENDANTS --- */
+        /* --- STYLES ET POSITIONNEMENT DES NOMS INDÉPENDANTS EXISTANTS --- */
         .independent-name {
             position: absolute;
             color: white;
-            /* Applique la nouvelle police directement ici */
             font-family: 'Avenir Next Cyr Heavy', sans-serif;
-            font-size: 30px;
-            font-weight: bold; /* Confirme la graisse "Heavy" */
+            font-size: 40px; /* Taille pour les 5 noms existants */
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             z-index: 10;
             white-space: nowrap;
         }
 
-        /* Positionnement de chaque nom indépendant */
+        /* Positionnement de chaque nom indépendant existant */
         #independent-name1 {
-            top: 556px;
+            top: 560px;
             left: 200px;
         }
 
         #independent-name2 {
-            top: 556px;
+            top: 560px;
             right: 200px;
         }
 
         #independent-name3 {
-            top: 916px;
+            top: 950px;
             left: 200px;
         }
 
         #independent-name4 {
-            top: 916px;
+            top: 950px;
             right: 200px;
         }
 
         #independent-name5 {
-            top: 916px;
+            top: 950px;
             left: 50%;
             transform: translateX(-50%);
         }
         /* ------------------------------------------------------------- */
+
+        /* --- NOUVEAU STYLE POUR LE TEXTE SUPPLÉMENTAIRE --- */
+        .independent-text-style {
+            position: absolute;
+            color: #FFD700; /* Une couleur différente pour le distinguer (or) */
+            font-family: 'Avenir Next Cyr Heavy', sans-serif;
+            font-size: 60px; /* Une taille de police significativement différente */
+            font-weight: bold;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+            z-index: 10;
+            white-space: nowrap;
+        }
+
+        /* Positionnement du nouveau texte */
+        #special-text {
+            top: 100px; /* Exemple de positionnement: près du haut, centré */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* --------------------------------------------------- */
 
     </style>
 </head>
@@ -152,5 +171,6 @@
     <div id="independent-name4" class="independent-name">Player 4</div>
     <div id="independent-name5" class="independent-name">Player 5</div>
 
-</body>
+    <div id="special-text" class="independent-text-style">Bienvenue à tous !</div>
+    </body>
 </html>
