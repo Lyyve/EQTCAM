@@ -2,54 +2,107 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Overlay VDO</title>
+  <title>Overlay Esport</title>
   <style>
     body {
       margin: 0;
-      background-color: black;
-      font-family: Arial, sans-serif;
-    }
-    .cam-container {
-      position: absolute;
-      width: 480px;
-      height: 270px;
-      border: 4px solid #00ffcc;
-      border-radius: 16px;
+      background: linear-gradient(135deg, #d62847, #f34d6c);
+      font-family: 'Arial Black', sans-serif;
       overflow: hidden;
     }
-    .name {
+    .overlay {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      margin: 0 auto;
+    }
+    .cam {
       position: absolute;
-      bottom: -30px;
-      left: 10px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
+      width: 320px;
+      height: 180px;
+      border: 4px solid black;
+      background: transparent;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
     }
-    #player1 {
-      top: 50px;
-      left: 50px;
-    }
-    #player2 {
-      top: 50px;
-      right: 50px;
-    }
-    iframe {
+    .cam iframe {
       width: 100%;
       height: 100%;
       border: none;
     }
+    .nameplate {
+      position: absolute;
+      bottom: -32px;
+      left: 0;
+      background-color: #411f1f;
+      padding: 4px 12px;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      border-radius: 0 0 8px 0;
+    }
+    #cam1 { top: 160px; left: 120px; }
+    #cam2 { top: 160px; left: 760px; }
+    #cam3 { top: 160px; left: 1400px; }
+    #cam4 { top: 420px; left: 440px; }
+    #cam5 { top: 420px; left: 1080px; }
+
+    /* Desk (trou) */
+    .desk-hole {
+      position: absolute;
+      top: 420px;
+      left: 760px;
+      width: 320px;
+      height: 180px;
+      background: transparent;
+      border: 4px solid black;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+    }
+    .desk-label {
+      position: absolute;
+      top: 610px;
+      left: 880px;
+      background-color: black;
+      color: white;
+      font-size: 22px;
+      padding: 4px 12px;
+      font-weight: bold;
+      border-radius: 0 0 8px 8px;
+    }
+
+    .team-name {
+      position: absolute;
+      top: 40px;
+      left: 100px;
+      background-color: #c61f3a;
+      color: white;
+      font-size: 28px;
+      padding: 10px 20px;
+      font-weight: bold;
+      box-shadow: 4px 4px 8px rgba(0,0,0,0.4);
+      border-radius: 4px;
+    }
+
+    .logo {
+      position: absolute;
+      top: 40px;
+      right: 100px;
+      height: 100px;
+    }
   </style>
 </head>
 <body>
-  <div class="cam-container" id="player1">
-    <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent" allow="camera; microphone"></iframe>
-    <div class="name">Joueur 1</div>
-  </div>
+  <div class="overlay">
 
-  <div class="cam-container" id="player2">
-    <iframe src="https://vdo.ninja/?view=joueur2&cleanoutput&transparent" allow="camera; microphone"></iframe>
-    <div class="name">Joueur 2</div>
-  </div>
-</body>
-</html>
+    <!-- Team name -->
+    <div class="team-name">VALORANT TEAM</div>
 
+    <!-- Team logo -->
+    <img src="https://upload.wikimedia.org/wikipedia/fr/thumb/e/e7/Fnatic_logo.svg/800px-Fnatic_logo.svg.png" class="logo" alt="Team Logo">
+
+    <!-- Cameras -->
+    <div class="cam" id="cam1">
+      <iframe src="https://vdo.ninja/?view=joueur1&cleanoutput&transparent"></iframe>
+      <div class="nameplate">Joueur 1</div>
+    </div>
+    <div cl
