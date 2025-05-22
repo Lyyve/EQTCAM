@@ -35,13 +35,76 @@
     }
 
     .name {
-      position: absolute;
-      bottom: -25px;
-      left: 10px;
-      color: white;
-      font-weight: bold;
-      font-size: 14px;
-      text-shadow: 1px 1px 2px black;
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affichage de Noms Personnalisés</title>
+    <style>
+        /* Styles de base pour la page */
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100vw; /* Vue port largeur */
+            height: 100vh; /* Vue port hauteur */
+            background-color: #333; /* Fond sombre pour faire ressortir le texte blanc */
+            position: relative; /* Important pour que les éléments 'absolute' se positionnent par rapport au body */
+            overflow: hidden; /* Empêche les barres de défilement si les éléments sortent de l'écran */
+        }
+
+        /* Style générique pour tous les noms */
+        .nom-affiche {
+            position: absolute; /* Permet un positionnement précis avec top, left, right, bottom */
+            color: white; /* Couleur du texte */
+            font-family: 'Arial', sans-serif; /* Police de caractères */
+            font-size: 2.5em; /* Taille de la police */
+            font-weight: bold; /* Gras */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour une meilleure lisibilité sur certains fonds */
+            white-space: nowrap; /* Empêche le texte de passer à la ligne s'il y a un espace */
+            /* Pour un meilleur aperçu, vous pouvez ajouter une bordure temporaire: */
+            /* border: 1px dashed rgba(255, 255, 255, 0.5); */
+            /* padding: 5px 10px; */
+        }
+
+        /* Paramètres de placement pour chaque nom */
+        #nom1 {
+            top: 50px;
+            left: 50px;
+        }
+
+        #nom2 {
+            top: 150px;
+            right: 50px; /* Positionné à 50px du bord droit */
+        }
+
+        #nom3 {
+            bottom: 100px; /* Positionné à 100px du bord bas */
+            left: 20%; /* Positionné à 20% de la largeur du parent depuis la gauche */
+            /* Vous pouvez aussi utiliser 'left: 250px;' par exemple */
+        }
+
+        #nom4 {
+            top: 50%; /* Commence à la moitié de la hauteur du parent */
+            left: 50%; /* Commence à la moitié de la largeur du parent */
+            transform: translate(-50%, -50%); /* CENTRE PARFAITEMENT (horizontalement et verticalement) l'élément */
+            font-size: 3.5em; /* Plus grand pour le centre */
+            color: #FFD700; /* Couleur dorée pour le nom central */
+        }
+
+        #nom5 {
+            bottom: 50px; /* Positionné à 50px du bord bas */
+            right: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="nom1" class="nom-affiche"> ALPHA</div>
+    <div id="nom2" class="nom-affiche"> BETA</div>
+    <div id="nom3" class="nom-affiche"> CHARLIE</div>
+    <div id="nom4" class="nom-affiche"> DELTA</div>
+    <div id="nom5" class="nom-affiche"> ECHO</div>
+
+</body>
     }
 
     iframe {
